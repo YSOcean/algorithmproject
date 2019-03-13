@@ -10,7 +10,6 @@ public class ImplementStrStr {
 
     /**
      * 遍历母字符串，依次找到是否和字符串相等的地方，注意，不需要遍历完成整个母字符串。
-     *
      */
     public int strStrTest1(String haystack, String needle) {
         if(haystack == null || needle == null){
