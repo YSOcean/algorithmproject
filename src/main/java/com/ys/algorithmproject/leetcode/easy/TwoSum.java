@@ -27,7 +27,7 @@ public class TwoSum {
                 }
             }
         }
-        throw new IllegalArgumentException("Now two sum solution");
+        throw new IllegalArgumentException("No two sum solution");
     }
 
 
@@ -50,7 +50,7 @@ public class TwoSum {
                 return new int[]{j,map.get(temp)};
             }
         }
-        throw new IllegalArgumentException("Now two sum solution");
+        throw new IllegalArgumentException("No two sum solution");
     }
 
 
@@ -68,7 +68,7 @@ public class TwoSum {
             }
             map.put(nums[i],i);
         }
-        throw new IllegalArgumentException("Now two sum solution");
+        throw new IllegalArgumentException("No two sum solution");
     }
 
 }
