@@ -9,6 +9,7 @@ package com.ys.algorithmproject.leetcode.easy;
 public class Sqrt {
 
     /**
+     * 二分查找法：
      * 从0-x范围之间的数 n 进行遍历，判断是否有n^2=x
      * 为了提高查询效率，我们可以选择二分法
      */
@@ -27,6 +28,20 @@ public class Sqrt {
             }
         }
         return left - 1;
+    }
+
+
+    /**
+     * 牛顿迭代法：
+     * 要求x^2 = n 的解，可以令f(x) = x^2 - n，相当于求f(n) = 0 的解
+     * 递推公式为：xi+1=xi - (xi2 - n) / (2xi) = xi - xi / 2 + n / (2xi) = xi / 2 + n / 2xi = (xi + n/xi) / 2
+     */
+    public static int mySqrtTest2(int x) {
+        long r = x;
+        while(r*r > x){
+            r = (r + x/r)/2;
+        }
+        return (int) r;
     }
 
     public static void main(String[] args) {
