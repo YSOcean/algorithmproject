@@ -12,6 +12,10 @@ package com.ys.algorithmproject.leetcode.easy;
  */
 public class BestTimetoBuyandSellStockII {
 
+    /**
+     * 从第二天开始，如果当前价格比之前价格高，则把差值大于0则是利润，然后加入到总利润中
+     * 遍历完整个数组，得到的最后总利润便是所求
+     */
     public int maxProfit(int[] prices) {
         int profit = 0;
         for (int i = 1; i < prices.length; i++){
