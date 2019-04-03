@@ -20,8 +20,8 @@ public class MinStack {
 
     public void push(int x) {
         if(x <= min){
-            min = x;
             stack.push(min);
+            min = x;
         }
         stack.push(x);
     }
