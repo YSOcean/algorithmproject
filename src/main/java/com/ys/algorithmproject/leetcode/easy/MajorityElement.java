@@ -58,12 +58,15 @@ public class MajorityElement {
     public int majorityElementTest3(int[] nums) {
         int count=0, ret = 0;
         for (int num: nums) {
-            if (count==0)
+            if (count==0){
                 ret = num;
-            if (num!=ret)
+            }
+            if (num!=ret){
                 count--;
-            else
+            }
+            else{
                 count++;
+            }
         }
         return ret;
     }
