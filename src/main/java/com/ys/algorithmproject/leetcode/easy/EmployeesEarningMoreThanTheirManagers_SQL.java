@@ -18,7 +18,7 @@ package com.ys.algorithmproject.leetcode.easy;
  | Joe      |
  +----------+
  */
-public class EmployeesEarningMoreThanTheirManagers {
+public class EmployeesEarningMoreThanTheirManagers_SQL {
     public static void main(String[] args) {
         //1、构造两张表，一张下属表，一张领导表，自关联
         /*
