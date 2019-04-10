@@ -33,5 +33,6 @@ public class CombineTwoTables {
         left join Address a
         on p.PersonId = a.PersonId
         */
+        //或者使用右连接
     }
 }
