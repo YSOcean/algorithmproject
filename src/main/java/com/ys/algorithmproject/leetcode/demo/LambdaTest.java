@@ -8,6 +8,8 @@ import java.util.stream.Stream;
 
 /**
  * Create by YSOcean
+ * 语句是可以单独执行的、能够产生实际效果的代码；
+ * 而表达式则是包含在语句中，根据某种条件计算出一个值或得出某种结果，然后由语句去判断和处理的代码。
  */
 public class LambdaTest {
 
@@ -28,5 +30,10 @@ public class LambdaTest {
         List<Apple> heavyApples = Tradition.filterHeavyApples(appleList);
         List<Apple> stream = appleList.stream().filter((Apple a) -> a.getWeight()>160).collect(Collectors.toList());
         System.out.println("******");
+
+
+        System.out.println("******");
+        System.out.println("******");
+
     }
 }

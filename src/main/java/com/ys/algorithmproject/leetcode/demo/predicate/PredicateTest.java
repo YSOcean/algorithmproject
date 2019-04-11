@@ -36,5 +36,16 @@ public class PredicateTest {
 
         List<Apple> greenApples = filterApple(appleList,p);
         System.out.println("**********");
+
+
+        List<Apple> heavyApples = filterApple(appleList, new ApplePredicate() {
+            @Override
+            public boolean test(Apple apple) {
+                return apple.getWeight()>150;
+            }
+        });
+        System.out.println("**********");
+        List<Apple> result = filterApple(appleList,(Apple apple) -> "red".equals(apple.getColor()));
+        System.out.println("**********");
     }
 }
