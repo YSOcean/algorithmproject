@@ -40,7 +40,10 @@ public class LambdaTest {
 
         List<Apple> sortApples = appleList.stream().filter((a) -> a.getWeight()>150).collect(Collectors.toList());
 
+        List<Integer> apples2 = appleList.stream().map(Apple::getWeight).collect(Collectors.toList());
 
+
+        System.out.println("******");
         System.out.println("******");
 
     }
