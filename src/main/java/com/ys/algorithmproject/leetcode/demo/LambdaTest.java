@@ -1,8 +1,7 @@
 package com.ys.algorithmproject.leetcode.demo;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -12,6 +11,7 @@ import java.util.stream.Stream;
  * 而表达式则是包含在语句中，根据某种条件计算出一个值或得出某种结果，然后由语句去判断和处理的代码。
  */
 public class LambdaTest {
+
 
 
     public static void main(String[] args) {
@@ -28,11 +28,19 @@ public class LambdaTest {
 
         List<Apple> greenApples = Tradition.filterGreenApples(appleList);
         List<Apple> heavyApples = Tradition.filterHeavyApples(appleList);
-        List<Apple> stream = appleList.stream().filter((Apple a) -> a.getWeight()>160).collect(Collectors.toList());
+        List<Apple> stream = appleList.stream().filter((Apple a) -> a.getWeight()>150).collect(Collectors.toList());
         System.out.println("******");
 
+        Predicate<Apple> redColor = x -> ("red").equals(x.getColor());
+        Boolean flag = appleList.stream().anyMatch(redColor);
 
+        Runnable r1 = () -> {System.out.println("abc");};
+        r1.run();
         System.out.println("******");
+
+        List<Apple> sortApples = appleList.stream().filter((a) -> a.getWeight()>150).collect(Collectors.toList());
+
+
         System.out.println("******");
 
     }
