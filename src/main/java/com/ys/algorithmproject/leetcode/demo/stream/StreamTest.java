@@ -28,6 +28,7 @@ public class StreamTest {
         List<Dash> isVegetarian2 =
                 menu.stream().filter(Dash::isVegetarian).collect(Collectors.toList());
 
+        /***************筛选和切片*****************/
 
         //筛选各异的元素distinct
         List<Integer> nums = Arrays.asList(1,2,1,3,3,2,4);
@@ -41,6 +42,43 @@ public class StreamTest {
         //跳过元素
         List<Dash> dishSkip = menu.stream().filter(d -> d.getCalories()>300)
                 .skip(2).collect(Collectors.toList());
+
+
+        //筛选两个荤菜
+        List<Dash> dashNoVegatarinList = menu.stream().filter(d -> !d.isVegetarian())
+                .limit(2).collect(Collectors.toList());
+
+
+        /******************映射****************************/
+
+        //提取每个单词的长度
+        List<String> stringList = Arrays.asList("Java8","Lambdas","in","Action");
+        List<Integer> stringLength = stringList.stream().map((str) -> str.length())
+                .collect(Collectors.toList());
+
+        //提取单词组中每个不同的字符
+        //错误做法
+        List<String[]> s = stringList.stream().map((str) -> str.split("")).distinct()
+                .collect(Collectors.toList());
+
+        //正确做法 flatMap
+        List<String> st = stringList.stream().map(w -> w.split(""))
+                .flatMap(Arrays::stream).distinct().collect(Collectors.toList());
+
+        //给定一个数组列表，返回每个元素平方的列表
+        List<Integer> intList = Arrays.asList(1,2,3,4,5);
+        List<Integer> sqrIntList = intList.stream().map(i->i*i)
+                .collect(Collectors.toList());
+
+
+
+        /******************查找和匹配****************************/
+        if(menu.stream().anyMatch(Dash::isVegetarian)){
+            System.out.println("存在素食");
+        }
+
+
+
 
         System.out.println("**********");
     }
