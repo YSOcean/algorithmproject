@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 /**
  * Create by YSOcean
@@ -88,6 +89,10 @@ public class TraderTransactionTest {
                 .reduce((t1,t2) -> t1.getValue()<t2.getValue()?t1:t2);
 
         System.out.println("*************************");
+
+        IntStream eventNumbers = IntStream.rangeClosed(1,100);
+        eventNumbers.filter(i -> i%2==0)
+                .forEach(System.out::print);
 
     }
 }
