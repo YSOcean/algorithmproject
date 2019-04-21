@@ -5,6 +5,7 @@ package com.ys.algorithmproject.leetcode.demo;
  */
 public class Apple {
     private int weight = 0;
+
     private String color = "";
 
     public Apple(int weight,String color){
