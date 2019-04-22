@@ -1,9 +1,11 @@
 package com.ys.algorithmproject.leetcode.demo.stream;
 
 import com.sun.org.apache.xpath.internal.SourceTree;
+import jdk.nashorn.internal.runtime.options.Option;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
 
 /**
@@ -77,8 +79,19 @@ public class StreamTest {
             System.out.println("存在素食");
         }
 
+        /******************归约****************************/
+        int[] nums2 = {1,2,3,4,5};
+        //对数组中元素求和
+        int sum1 = Arrays.stream(nums2).reduce(0,(x,y)->x+y);
+        int sum2 = Arrays.stream(nums2).reduce(0,Integer::sum);
 
+        //求数组中最大元素
+        OptionalInt maxNum1 = Arrays.stream(nums2).reduce((x,y)->x>y?x:y);
+        OptionalInt maxNum2 = Arrays.stream(nums2).reduce(Integer::max);
 
+        //统计菜单中有多少个菜
+        int menuNum1 = menu.stream().map(d->1).reduce(0,Integer::sum);
+        Long menuNum2 = menu.stream().count();
 
         System.out.println("**********");
     }
