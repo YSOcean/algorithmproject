@@ -8,6 +8,7 @@ import io.swagger.annotations.ApiModelProperty;
 public class Apple {
     @ApiModelProperty()
     private int weight = 0;
+
     private String color = "";
 
     public Apple(int weight,String color){
