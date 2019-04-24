@@ -1,9 +1,12 @@
 package com.ys.algorithmproject.leetcode.demo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * @author shuaiyu
  */
 public class Apple {
+    @ApiModelProperty()
     private int weight = 0;
 
     private String color = "";
