@@ -86,6 +86,7 @@ public class StreamTest {
         int sum1 = Arrays.stream(nums2).reduce(0,(x,y)->x+y);
         int sum2 = Arrays.stream(nums2).reduce(0,Integer::sum);
 
+
         //求数组中最大元素
         OptionalInt maxNum1 = Arrays.stream(nums2).reduce((x,y)->x>y?x:y);
         OptionalInt maxNum2 = Arrays.stream(nums2).reduce(Integer::max);

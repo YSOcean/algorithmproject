@@ -28,4 +28,26 @@ public class Trader {
                 ", city='" + city + '\'' +
                 '}';
     }
+    private static String switchIntentionLevel(String intentionLevel){
+        switch (intentionLevel){
+            case "A":
+                return "承诺还款";
+            case "B":
+                return "未承诺还款";
+            case "C":
+                return "已经还款";
+            default:
+                return intentionLevel;
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(switchIntentionLevel("A"));
+        System.out.println(switchIntentionLevel("b"));
+        System.out.println(switchIntentionLevel("B"));
+        System.out.println(switchIntentionLevel("C"));
+        System.out.println(switchIntentionLevel(""));
+        //java.lang.NullPointerException
+        System.out.println(switchIntentionLevel(null));
+    }
 }
