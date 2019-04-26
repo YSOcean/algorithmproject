@@ -5,6 +5,7 @@ import jdk.nashorn.internal.runtime.options.Option;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.OptionalInt;
 import java.util.stream.Collectors;
 
@@ -93,6 +94,16 @@ public class StreamTest {
         int menuNum1 = menu.stream().map(d->1).reduce(0,Integer::sum);
         Long menuNum2 = menu.stream().count();
 
+        Long lo = menu.stream().collect(Collectors.counting());
+
+
+        //连接字符串
+        String menuStr1 = menu.stream().map(Dash::getName).collect(Collectors.joining());
+        String menuStr2 = menu.stream().map(Dash::getName).collect(Collectors.joining(","));
+
+        //分组
+        Map<Dash.Type,List<Dash>> typeListMap = menu.stream().
+                collect(Collectors.groupingBy(Dash::getType));
         System.out.println("**********");
     }
 }
