@@ -66,6 +66,8 @@ public class TraderTransactionTest {
 
 
 
+
+
         //7、所有交易中，最高的交易额是多少？
         Optional<Integer> maxValue = transactions.stream()
                 .map(Transaction::getValue)
