@@ -1,5 +1,9 @@
 package com.ys.algorithmproject.leetcode.demo.stream;
 
+import com.alibaba.fastjson.JSONObject;
+
+import java.util.Arrays;
+
 /**
  * Create by YSOcean
  */
@@ -48,6 +52,17 @@ public class Trader {
         System.out.println(switchIntentionLevel("C"));
         System.out.println(switchIntentionLevel(""));
         //java.lang.NullPointerException
-        System.out.println(switchIntentionLevel(null));
+        //System.out.println(switchIntentionLevel(null));
+        JSONObject pushDataJSON = new JSONObject();
+        pushDataJSON.put("A","a");
+        pushDataJSON.put("B","b");
+        pushDataJSON.put("C","c");
+        pushDataJSON.put("A","123");
+        System.out.println(pushDataJSON.toJSONString());
+        JSONObject pushDataJSON2 = pushDataJSON;
+        pushDataJSON2.put("A",456);
+
+        String[] strs = {"1","2","3","4","5"};
+        System.out.println(Arrays.toString(strs).toString());
     }
 }
