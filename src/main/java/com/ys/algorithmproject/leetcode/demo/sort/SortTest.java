@@ -71,13 +71,54 @@ public class SortTest {
         return array;
     }
 
+    public static int[] quickSort(int[] array){
+        recQuickSort(array,0,array.length-1);
+        return array;
+    }
+
+    private static void recQuickSort(int[] array,int left,int right){
+        if(left>=right){
+            return;
+        }else{
+            int partition = partitionIt(array,left,right);
+            recQuickSort(array,left,partition-1);
+            recQuickSort(array,partition+1,right);
+        }
+    }
+
+    private static int partitionIt(int[] array,int left,int right){
+        int i = left;
+        int j = right + 1;
+        int pivot = array[left];
+        while(true){
+            while(i<right && array[++i] < pivot){}
+
+            while(j>0 && array[--j] > pivot){}
+
+            if(i>=j){
+                break;
+            }else{
+                swap(array,i,j);
+            }
+        }
+        swap(array,left,j);
+        return j;
+    }
+
+    public static void swap(int[] array,int i,int j){
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
     public static void main(String[] args) {
         int[] array = {3,5,1,9,8,2,7,6,4};
         //bubbleSort(array);
 
         //choiceSort(array);
 
-        insertSort(array);
+        //insertSort(array);
+
+        quickSort(array);
         System.out.println(Arrays.toString(array));
     }
 }
