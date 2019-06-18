@@ -16,7 +16,22 @@ public class DefaultApiImpl implements DefaultApi{
     }
 
     public static void main(String[] args) {
-        DefaultApiImpl di = new DefaultApiImpl();
-        di.test2();
+        System.out.println(cnToUnicode("chí"));
+        System.out.println(cnToUnicode("néng"));
+    }
+
+    /**
+     * 将拼音字符转换为unicode字符编码进行比较
+     *
+     * @param cn
+     * @return
+     */
+    public static String cnToUnicode(String cn) {
+        char[] chars = cn.toCharArray();
+        String returnStr = "";
+        for (int i = 0; i < chars.length; i++) {
+            returnStr += "\\u" + Integer.toString(chars[i], 16);
+        }
+        return returnStr;
     }
 }
