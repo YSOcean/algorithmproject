@@ -38,7 +38,7 @@ public class RemoveDuplicatesfromSortedList {
 
     /**
      *  递归：递归三要素
-     *  1、假设该函数deleteDuplicatesTest2(ListNode head)是用来求没有重复的链表
+     *  1、假设该函数deleteDuplicatesTest2(LinkedNode head)是用来求没有重复的链表
      *  2、结束条件：当节点为null或者节点.next为null时，直接返回
      *  3、递归函数：比较当前节点值是否和下一个节点的值相等，然后移动相应的指针
      */
