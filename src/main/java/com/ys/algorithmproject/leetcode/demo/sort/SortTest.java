@@ -1,6 +1,11 @@
 package com.ys.algorithmproject.leetcode.demo.sort;
 
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
+
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Create by YSOcean
@@ -105,6 +110,7 @@ public class SortTest {
         return j;
     }
 
+
     public static void swap(int[] array,int i,int j){
         int temp = array[i];
         array[i] = array[j];
@@ -120,5 +126,47 @@ public class SortTest {
 
         quickSort(array);
         System.out.println(Arrays.toString(array));
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("a",1);
+        jsonObject.put("b",1);
+        jsonObject.put("c",1);
+        HashMap<String,String> stringHashMap = new HashMap<>();
+        stringHashMap.put("1","1");
+        stringHashMap.put("2","2");
+        stringHashMap.put("3","3");
+        jsonObject.putAll(stringHashMap);
+        System.out.println(jsonObject.toJSONString());
+
+        String str1 = "ab";
+        String str2 = "abcd";
+        System.out.println(str1.contains(str2));
+
+        String str3 = "123";
+        String str4 = str3.substring(str3.length()-3,str3.length());
+        System.out.println(str4.equals(str3));
+
+        SortTest st = new SortTest();
+        st.setOrgAgency("isXiaMen:0369,isLiaoning:0390,isHeNan:106,isGuiZhou:0353");
+        st.getOrgAgency();
     }
+
+    private Map<String,String> orgAgency = new HashMap<>();
+    public Map<String, String> getOrgAgency() {
+        return orgAgency;
+    }
+
+    @Value("isXiaMen:0369,isLiaoning:0390,isHeNan:106,isGuiZhou:0353")
+    public void setOrgAgency(String orgAgency) {
+        if ("".equals(orgAgency)) {
+            return;
+        }
+        String[] keyValues = orgAgency.split(",");
+        for (String keyValue : keyValues) {
+            String[] keyValueArr = keyValue.split(":");
+            this.orgAgency.put(keyValueArr[0], keyValueArr[1]);
+        }
+    }
+
+
 }
