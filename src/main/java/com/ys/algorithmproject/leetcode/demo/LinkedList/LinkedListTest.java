@@ -1,6 +1,8 @@
 package com.ys.algorithmproject.leetcode.demo.LinkedList;
 
 
+import java.util.Arrays;
+
 /**
  * Create by YSOcean
  */
@@ -17,6 +19,9 @@ public class LinkedListTest {
 
         print(l1);
         print(reverseList2(l1));
+
+        Object[] array = {"ad",12,new LinkedNode("12")};
+        System.out.println(Arrays.toString(array));
     }
 
     /**
