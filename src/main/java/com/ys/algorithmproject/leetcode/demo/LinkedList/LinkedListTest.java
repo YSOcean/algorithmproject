@@ -67,7 +67,6 @@ public class LinkedListTest {
     public static LinkedNode reverseList3(LinkedNode head){
         LinkedNode pre = null;
         LinkedNode current = head;
-        LinkedNode next = null;
 
         while(head != null){
             current = head.next;
