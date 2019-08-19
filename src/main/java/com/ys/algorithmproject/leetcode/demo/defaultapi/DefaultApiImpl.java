@@ -18,6 +18,7 @@ public class DefaultApiImpl implements DefaultApi{
     public static void main(String[] args) {
         System.out.println(cnToUnicode("chí"));
         System.out.println(cnToUnicode("néng"));
+
     }
 
     /**
@@ -34,4 +35,6 @@ public class DefaultApiImpl implements DefaultApi{
         }
         return returnStr;
     }
+
+
 }
