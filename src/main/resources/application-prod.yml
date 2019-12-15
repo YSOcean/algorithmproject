@@ -1,0 +1,105 @@
+server:
+  port: 8060
+  servlet:
+    context-path: /bell-eps
+    session:
+      timeout: 3600s
+
+
+spring:
+  #国际化配置
+  messages:
+    basename: i18n/ConfigInfo/configInfo,i18n/ConfigTemplate/configTemplate
+    encoding: UTF-8
+
+  datasource:
+    #隔离级别数字配置含义：
+    #-1  数据库默认隔离级别
+    #1   未提交读
+    #2   读写提交
+    #4   可重复读
+    #8   串行化
+    tomcat:
+      default-transaction-isolation: 8
+
+
+    url: jdbc:sqlite:F:\\belleps\\jar\\db\\belleps.db
+    username:
+    password:
+    driver-class-name: org.sqlite.JDBC
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      # 初始连接数
+      initial-size: 10
+      # 最小连接池数量
+      min-idle: 10
+      # 最大连接池数量
+      max-active: 500
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      # 配置一个连接在池中最大生存的时间，单位是毫秒
+      max-evictable-idle-time-millis: 900000
+      # 配置检测连接是否有效
+      validation-query: SELECT 'x'
+      # 当连接空闲时，是否执行连接测试
+      test-while-idle: true
+      # 当从连接池借用连接时，是否测试该连接
+      test-on-borrow: false
+      # 在连接归还到连接池时是否测试该连接
+      test-on-return: false
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙(sqlite不支持，要去掉)
+      #filters: config,stat,wall
+      filters: config,stat
+      # 打开PSCache，并且指定每个连接上PSCache的大小(Sqlite不支持ture，会报 ResultSet closed)
+      pool-prepared-statements: false
+      #SQLite不支持下面两个属性：会报 ResultSet closed
+      #max-pool-prepared-statement-per-connection-size: 20
+      #max-open-prepared-statements: 20
+      filter:
+        stat:
+          # 慢SQL记录
+          enabled: true
+          log-slow-sql: true
+          # 超过1000ms记录下来，并且在监控界面的SQL监控超过这个设置时间会变红
+          slow-sql-millis: 1000
+          merge-sql: true
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: /druid/*,*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico
+        session-stat-enable: true
+        session-stat-max-count: 10
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: true
+        #登录页面是：http://localhost:8060/bell-eps/druid/login.html
+        #下面两个配置是登录用户名和密码
+        login-username: admin
+        login-password: admin
+        allow:
+
+
+config:
+  swaggerConfig:
+    #是否展示swagger,true表示展示。生产环境中需要置为false,避免暴露接口
+    isShow: true
+  #存储公共模板配置文件的路径
+  commonFilePath: ./commonFile/
+  #存储每台话机独有的配置文件路径
+  privateFilePath: ./privateFile/
+  #存储每台话机合并公有配置文件和私有配置文件的保存文件路径
+  combinationFilePath: ./combinationFile/
+  websocket-client:
+    #扫描认证actionID
+    monitor-submit-verification: 100010
+  #设置话机扫描的接口地址
+  scanDeviceUrl: https://{0}:{1}/cgi-bin/baseInfo.cgi
+  #远程控制话机接口
+  controlDeviceUrl: https://{0}:{1}/cgi-bin/test.cgi
+
+
