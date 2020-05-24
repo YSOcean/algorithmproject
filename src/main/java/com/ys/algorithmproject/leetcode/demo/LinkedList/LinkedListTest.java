@@ -18,11 +18,33 @@ public class LinkedListTest {
         l3.next = l4;
 
         print(l1);
-        print(reverseList2(l1));
+        print(reverseList5(l1));
 
         Object[] array = {"ad",12,new LinkedNode("12")};
         System.out.println(Arrays.toString(array));
     }
+
+    /**
+     * @Author: yuShuai
+     * @Description: 递归反转链表
+     * @Date: 2019/10/22 10:23
+     * @params:
+     * @return:
+     */
+    public static LinkedNode reverseList4(LinkedNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+        LinkedNode newLink = reverseList4(head.next);
+        LinkedNode l2 = head.next;
+        l2.next = head;
+        head.next = null;
+
+        return newLink;
+    }
+
+
+    /*******************************************************************************/
 
     /**
      * 递归反转链表
@@ -77,6 +99,48 @@ public class LinkedListTest {
         return pre;
 
     }
+
+
+
+    /*************************************************************************************/
+
+    /**
+     * @Author: yuShuai
+     * @Description: 递归
+     * @Date: 2020/1/13 17:25
+     * @params:
+     * @return:
+     */
+    public static LinkedNode reverseList5(LinkedNode head){
+        if(head == null || head.next == null){
+            return head;
+        }
+        LinkedNode newNode = reverseList5(head.next);
+        LinkedNode l2 = head.next;
+        l2.next = head;
+        head.next=null;
+        return newNode;
+    }
+
+    /**
+     * @Author: yuShuai
+     * @Description: 遍历
+     * @Date: 2020/1/13 17:26
+     * @params:
+     * @return:
+     */
+    public static LinkedNode reverseLink6(LinkedNode head){
+        LinkedNode pre = null;
+        LinkedNode current = null;
+        while(head != null){
+            current = head.next;
+            head.next = pre;
+            pre = head;
+            head = current;
+        }
+        return pre;
+    }
+
 
     /**
      * 打印链表
