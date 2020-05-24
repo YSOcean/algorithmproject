@@ -1,7 +1,8 @@
 package com.ys.algorithmproject.leetcode.demo.concurrency.createThread;
 
 /**
- * Create by YSOcean
+ * Create by ItCoke
+ * 创建线程的第二种方式：实现Runnable接口
  */
 public class CreateThread02 implements Runnable {
 

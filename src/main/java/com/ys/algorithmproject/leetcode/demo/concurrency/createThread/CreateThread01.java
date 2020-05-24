@@ -1,7 +1,8 @@
 package com.ys.algorithmproject.leetcode.demo.concurrency.createThread;
 
 /**
- * Create by YSOcean
+ * Create by ItCoke
+ * 创建线程的第一种方式：继承Thred类
  */
 public class CreateThread01 extends Thread {
 
