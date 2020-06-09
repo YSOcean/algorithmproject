@@ -19,6 +19,7 @@ public class PrintOddEven {
                     try {
                         Thread.sleep(1000);
                         objMonitor.wait();
+                        System.out.println(Thread.currentThread().getName());
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -31,7 +32,7 @@ public class PrintOddEven {
 
 
     public static void main(String[] args) {
-        new Thread(new OddEvenThread(),"奇数").start();
         new Thread(new OddEvenThread(),"偶数").start();
+        new Thread(new OddEvenThread(),"奇数").start();
     }
 }
