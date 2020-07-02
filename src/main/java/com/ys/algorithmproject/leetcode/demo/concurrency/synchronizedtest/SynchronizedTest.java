@@ -6,7 +6,7 @@ package com.ys.algorithmproject.leetcode.demo.concurrency.synchronizedtest;
  */
 public class SynchronizedTest implements Runnable{
 
-    public static int count = 0;
+    public volatile static int count = 0;
 
     Object objMonitor = new Object();
 
@@ -19,7 +19,7 @@ public class SynchronizedTest implements Runnable{
     public void addCount(){
 
         synchronized(objMonitor){
-            int i = 0;
+             int i = 0;
             while (i++ < 100000) {
                 count++;
             }
@@ -64,11 +64,27 @@ public class SynchronizedTest implements Runnable{
 
 
     public String lockRemoveTest(){
+
         StringBuffer sb = new StringBuffer();
         sb.append("hello");
         sb.append("word");
         return sb.toString();
     }
+
+
+Object monitor = new Object();
+public void lockCoarsingTest(){
+    //Object monitor = new Object();
+    synchronized (monitor){
+        //TODO
+    }
+    synchronized (monitor){
+        //TODO
+    }
+    synchronized (monitor){
+        //TODO
+    }
+}
 
 }
 
