@@ -36,29 +36,3 @@ public class VolatileTest implements Runnable{
     }
 }
 
-
-public class AtomicInteger extends Number implements java.io.Serializable {
-    private static final long serialVersionUID = 6214790243416807050L;
-
-    // setup to use Unsafe.compareAndSwapInt for updates
-    private static final Unsafe unsafe = Unsafe.getUnsafe();
-    private static final long valueOffset;
-
-    static {
-        try {
-            valueOffset = unsafe.objectFieldOffset
-                    (java.util.concurrent.atomic.AtomicInteger.class.getDeclaredField("value"));
-        } catch (Exception ex) {
-            throw new Error(ex);
-        }
-    }
-
-    private volatile int value;
-
-
-    public final int getAndSet(int newValue) {
-        return unsafe.getAndSetInt(this, valueOffset, newValue);
-    }
-
-
-}
